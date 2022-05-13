@@ -19,10 +19,16 @@ Packer - ПО для создания образов виртуальных ма
 Git - система контроля версий
 А так же аккаунты:
 
-#####GitHub - https://github.com/
-#####Vagrant Cloud - https://app.vagrantup.com
+#####GitHub 
+https://github.com/
+
+#####Vagrant Cloud 
+https://app.vagrantup.com
+
 ###Установка ПО
+
 #####Vagrant
+
 Переходим на https://www.vagrantup.com/downloads.html выбираем соответствующую версию. В данном случае Debian 64-bit и версия 2.2.6. Копируем ссылку и в консоли выполняем:
 
 curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb && \
@@ -132,6 +138,7 @@ packer provision config
     "output": "centos-{{user `artifact_version`}}-kernel-5-x86_64-Minimal.box",
 
 ####Установка локального пакера на удаленной машине:
+
 cd /home/student/romanov/manual_kernel_update/packer
 curl -O https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_amd64.zip
 unzip packer_1.8.0_linux_amd64.zip
@@ -181,6 +188,7 @@ drwxrwxr-x. 2 student student        24 May 12 16:46 http
 drwxrwxr-x. 2 student student        62 May 12 16:54 scripts
 
 ##Vagrant cloud
+
 Поделимся полученным образом с сообществом. Для этого зальем его в Vagrant Cloud. Можно залить через web-интерфейс, но так же vagrant позволяет это проделать через CLI. Логинимся в vagrant cloud, указывая e-mail, пароль и описание выданого токена (можно оставить по-умолчанию)
 
 vagrant cloud auth logout - отвязаться от учётной записи
@@ -194,7 +202,8 @@ You are now logged in.
 
 [student@pv-homeworks1-10 packer]$ vagrant cloud publish --release evgeniy-romanov86/centos-7-5 1.0 virtualbox centos-7.7.1908-kernel-5-x86_64-Minimal.box
 
-###Ссылка на созданный бокс https://app.vagrantup.com/evgeniy-romanov86/boxes/centos-7-5
+###Ссылка на созданный бокс 
+https://app.vagrantup.com/evgeniy-romanov86/boxes/centos-7-5
 
 
 
