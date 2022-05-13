@@ -19,15 +19,13 @@ Packer - ПО для создания образов виртуальных ма
 Git - система контроля версий
 А так же аккаунты:
 
-#####GitHub 
-https://github.com/
+### GitHub https://github.com/
 
-#####Vagrant Cloud 
-https://app.vagrantup.com
+### Vagrant Cloud https://app.vagrantup.com
 
-###Установка ПО
+### Установка ПО
 
-#####Vagrant
+##### Vagrant
 
 Переходим на https://www.vagrantup.com/downloads.html выбираем соответствующую версию. В данном случае Debian 64-bit и версия 2.2.6. Копируем ссылку и в консоли выполняем:
 
@@ -35,14 +33,14 @@ curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb &&
 sudo dpkg -i vagrant_2.2.6_x86_64.deb
 После успешного окончания будет установлен Vagrant.
 
-#####Packer
+##### Packer
 Переходим на https://www.packer.io/downloads.html выбираем соответствующую версию. В данном случае Linux 64-bit и версия 1.4.4. Копируем ссылку и в консоли выполняем:
 
 curl https://releases.hashicorp.com/packer/1.4.4/packer_1.4.4_linux_amd64.zip | \
 sudo gzip -d > /usr/local/bin/packer && \
 sudo chmod +x /usr/local/bin/packer
 После успешного окончания будет установлен Packer.
-##Kernel update
+## Kernel update
 Клонирование и запуск
 Для запуска рабочего виртуального окружения необходимо зайти через браузер в GitHub под своей учетной записью и выполнить fork данного репозитория: https://github.com/dmitry-lyutenko/manual_kernel_update
 
@@ -137,7 +135,7 @@ packer provision config
 
     "output": "centos-{{user `artifact_version`}}-kernel-5-x86_64-Minimal.box",
 
-####Установка локального пакера на удаленной машине:
+#### Установка локального пакера на удаленной машине:
 
 cd /home/student/romanov/manual_kernel_update/packer
 curl -O https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_amd64.zip
@@ -152,7 +150,7 @@ drwxrwxr-x. 2 student student        24 May 12 16:46 http
 -rwxr-xr-x. 1 student student 151683072 Mar  4 10:56 packer
 -rw-rw-r--. 1 student student  32195429 May 12 16:52 packer_1.8.0_linux_amd64.zip
 drwxrwxr-x. 2 student student        62 May 12 16:54 scripts
-#####Необходимо выполнить команду fix, чтобы убедиться, что ваши шаблоны работают с новой версией:
+##### Необходимо выполнить команду fix, чтобы убедиться, что ваши шаблоны работают с новой версией:
 ./packer fix centos.json > centos1.json
 
 Далее редактируем файл centos1.json
@@ -166,7 +164,7 @@ vim centos1.json
 "vm_name": "packer-centos-vm",
 "headless": true
 
-###packer build
+### packer build
 
 Для создания образа системы достаточно перейти в директорию packer и в ней выполнить команду:
 
@@ -187,7 +185,7 @@ drwxrwxr-x. 2 student student        24 May 12 16:46 http
 -rw-rw-r--. 1 student student  32195429 May 12 16:52 packer_1.8.0_linux_amd64.zip
 drwxrwxr-x. 2 student student        62 May 12 16:54 scripts
 
-##Vagrant cloud
+## Vagrant cloud
 
 Поделимся полученным образом с сообществом. Для этого зальем его в Vagrant Cloud. Можно залить через web-интерфейс, но так же vagrant позволяет это проделать через CLI. Логинимся в vagrant cloud, указывая e-mail, пароль и описание выданого токена (можно оставить по-умолчанию)
 
@@ -202,7 +200,7 @@ You are now logged in.
 
 [student@pv-homeworks1-10 packer]$ vagrant cloud publish --release evgeniy-romanov86/centos-7-5 1.0 virtualbox centos-7.7.1908-kernel-5-x86_64-Minimal.box
 
-###Ссылка на созданный бокс 
+### Ссылка на созданный бокс 
 https://app.vagrantup.com/evgeniy-romanov86/boxes/centos-7-5
 
 
